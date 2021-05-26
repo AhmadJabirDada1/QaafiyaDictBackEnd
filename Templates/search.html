@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Qaafiya</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js">
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js">
+    </script>
+    
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <h1> Qaafiya Urdu English Dictionary </h1>
+    <form method="POST">
+    <input type = "search" name= input1 id="tags" placeholder="Search.." >
+    <input type="submit">
+    <script>
+$( function() {
+    var availableTags = [
+        {% for word in word %}
+            "{{word}}".slice(6,-7),
+        {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+    source: availableTags
+    });
+} );
+</script>
+</form>
+</body>
+</html>
